@@ -15,36 +15,39 @@ float first_var, second_var , result , g;
 float *vec1 , *vec2;
 char operation, next_time;
 int main(int argc , char *argv[] ) {
+    FILE *input , *output;
+    input = fopen("input.txt","r" );
+    output = fopen("output.txt","w" );
     setvbuf(stdout, NULL, _IONBF, 0);
     setvbuf(stderr, NULL, _IONBF, 0);
     next_time = 'y';
     while (next_time == 'y'){ // Цикл на повторение программы неколько раз
-        puts("select a mode number operation - 1 vector operation - 2 ");
+        printf("select a mode number operation - 1 vector operation - 2 ");
         scanf("%i", &mode);
         if (mode == 1){
-            puts("enter the first var ");
+            printf("enter the first var ");
             scanf("%f", &first_var);
-            puts("enter your operation  ");
+            printf("enter your operation  ");
             scanf(" %c", &operation);
             g = first_var ;
             if (operation == '+') { // Сложение двух чисел
-                puts("enter the second  var ");
+                printf("enter the second  var ");
                 scanf("%f", &second_var);
                 result = first_var + second_var ;
             }else if (operation == '-') {   // Разность
-                puts("enter the second  var ");
+                printf("enter the second  var ");
                 scanf("%f", &second_var);
                 result = first_var - second_var ;
             }else if (operation == '*') {    // Произведение
-                puts("enter the second  var ");
+                printf("enter the second  var ");
                 scanf("%f", &second_var);
                 result = first_var * second_var ;
             }else if (operation == '/') {   // Деление
-                puts("enter the second  var ");
+                printf("enter the second  var ");
                 scanf("%f", &second_var);
                 result = first_var / second_var ;
             }else if (operation == '^') {   // Возведение в степень
-                puts("enter the second  var ");
+                printf("enter the second  var ");
                 scanf("%f", &second_var);
                 while (second_var >1){
                     first_var = first_var * g;
@@ -59,7 +62,7 @@ int main(int argc , char *argv[] ) {
                 result = first_var;
             }
             printf("%f" , result );    // Выводим результат
-            puts(" repeat it? (enter \"y\" to continue)"); // Спрашиваем о перезапуске программы
+            printf(" repeat it? (enter \"y\" to continue)"); // Спрашиваем о перезапуске программы
             scanf(" %c", &next_time);
         }
             else if(mode == 2){
@@ -91,9 +94,11 @@ int main(int argc , char *argv[] ) {
                 break;
             }
             printf("%f" , result );
-            puts(" repeat it? (enter \"y\" to continue)"); // Спрашиваем о перезапуске программы
+            printf(" repeat it? (enter \"y\" to continue)"); // Спрашиваем о перезапуске программы
             scanf(" %c", &next_time);
         }
     }
+    fclose(input);
+    fclose(output);
     return 0;
 }
