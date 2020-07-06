@@ -48,7 +48,6 @@ int main(int argc , char *argv[] ) {
                 }
                 result = first_var;
             }
-            result = first_var;
             printf("%f" , result );    // Выводим результат
             puts(" repeat it? (enter \"y\" to continue)"); // Спрашиваем о перезапуске программы
             scanf(" %c", &next_time);
